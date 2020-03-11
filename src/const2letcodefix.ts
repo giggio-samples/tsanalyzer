@@ -21,7 +21,8 @@ export class Const2let implements CodeFix {
     return `Change "const ${options.targetNode.getText()}" to "let ${options.targetNode.getText()}"`;
   }
 
-  apply(options: CodeFixOptions, fileName: string, actionName: string): ts.RefactorEditInfo | undefined {
+  apply(options: CodeFixOptions, fileName: string, actionName: string):
+    ts.RefactorEditInfo | undefined {
     const program = options.pluginCreateInfo.languageService.getProgram();
     if (!program) return;
     const typeChecker = program.getTypeChecker();
